@@ -1,0 +1,17 @@
+.lgc-bg {
+    background-color: rgb(242, 242, 242);
+}
+
+.lgc-bg-inverse {
+    background-color: rgb(22, 50, 92);
+}
+
+.slds-button-group {
+    background:#16325c;
+    padding:0.5rem;
+}
+.demo-only {
+    padding:0.5rem;
+    background:#16325c;
+    margin-bottom: 5%;
+}

@@ -1,0 +1,3 @@
+<apex:page standardController="Account" renderAs="pdf" applyBodyTag="false">
+    <c:AccountPDF acc="{!Account}" />
+</apex:page>

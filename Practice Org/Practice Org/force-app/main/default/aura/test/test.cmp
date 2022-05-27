@@ -1,0 +1,5 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	
+    <lightning:input type="text" value="{!v.value}" onchange="{!c.handleChange}" name="name" />
+ 
+</aura:component>

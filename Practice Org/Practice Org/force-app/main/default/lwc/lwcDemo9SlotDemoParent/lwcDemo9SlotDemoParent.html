@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Demo 7 Contact List">
+        <template for:each={contactInfoList} for:item="contact">
+            <li key={contact.id}>
+                <c-lwc-demo9-slot-demo-child>
+                    <lightning-tile label={contact.name} slot="contactinfo">
+                        <p class="slds-truncate">{contact.id}</p>
+                        <p class="slds-truncate">{contact.email}</p>
+                    </lightning-tile>
+                    <p>Additional markup which goes to unnamed slot</p>
+                </c-lwc-demo9-slot-demo-child>
+            </li>
+        </template>
+    </lightning-card>
+</template>

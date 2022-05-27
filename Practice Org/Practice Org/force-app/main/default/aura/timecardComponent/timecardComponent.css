@@ -1,0 +1,25 @@
+.THIS {
+    margin-top : 5%;
+    margin-left : 2%;
+    margin-right : 2%;
+}
+
+.THIS.headingOfTimesheet {
+    background-color : #16325c;
+    color : white;
+}
+
+.THIS .bodyOfTimeSheet {
+    background-color : white;
+    color : black;
+    text-align: center !important
+}
+
+.THIS.headingOfTimesheet thead th span{
+    background-color : #E0ECF8;
+    color : darkgreen;
+}
+
+.THIS .footerOfTimeSheet .delete {
+    text-align: center !important;
+}

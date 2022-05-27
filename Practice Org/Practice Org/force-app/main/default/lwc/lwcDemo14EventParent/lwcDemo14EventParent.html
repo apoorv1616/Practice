@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Demo 14 ">
+        <template for:each={contactInfoList} for:item="contact">
+            <li key={contact.id}>
+                <c-lwc-demo14-event-child contact-info={contact} ></c-lwc-demo14-event-child>
+            </li>
+        </template>
+        
+    </lightning-card>
+</template>

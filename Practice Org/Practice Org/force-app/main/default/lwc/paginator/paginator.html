@@ -1,0 +1,16 @@
+<template>
+    <div class="slds-clearfix">
+        <div class="slds-float_right slds-p-bottom_medium slds-p-right_medium">
+            <p class="slds-m-vertical_medium content">
+                Page {page} of {totalPage}. </p>
+
+
+            <lightning-button label="Previous" icon-name="utility:chevronleft" onclick={previousHandler}>
+            </lightning-button>
+
+
+            <lightning-button label="Next" icon-name="utility:chevronright" icon-position="right" onclick={nextHandler}>
+            </lightning-button>
+        </div>
+    </div>
+</template>

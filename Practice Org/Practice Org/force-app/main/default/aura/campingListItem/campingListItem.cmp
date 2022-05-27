@@ -1,0 +1,24 @@
+<aura:component >
+    <aura:attribute name="item" type="Camping_Item__c" required= "True" />
+    
+    <aura:attribute name="isDisabled" type="Boolean" default = "false" />
+    <br/>                
+    <lightning:formattedtext title = "Name Item" value="{!v.item.Name}" />
+    <br/>
+    <lightning:formattedNumber value="{!v.item.Quantity__c}" style="decimal" />
+    <br/>
+    <lightning:formattedNumber value="{!v.item.Price__c}" style="currency" />
+    <br/>
+    
+    
+    <lightning:button  
+                     label="Packed!"
+                     name="Packed"
+                     onclick = "{!c.packItem}"
+                     disabled = "{!v.isDisabled}" />
+    
+    <br/>
+    
+    
+    
+</aura:component>

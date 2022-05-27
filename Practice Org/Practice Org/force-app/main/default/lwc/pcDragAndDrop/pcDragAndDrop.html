@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title="Drag and Drop in Lightning Web Component">
+        <lightning-layout>
+            <div class="slds-p-around_small">
+
+                <div class="slds-text-heading_small">TO-DO POSTS</div><br />
+
+                <div onkeyup={handleKeyUp}>
+                    <lightning-input name="notes" label="Search when user hits the 'enter' key" type="search">
+                    </lightning-input>
+                </div>
+
+
+                <div class="flex-container" ondragover={allowDrop} ondrop={dropIncomplete}>
+                    <template for:each={messageArray} for:item="item">
+                        <div id={item} class="box" draggable="true" ondragstart={drag} key={item}>
+                            {item}
+                        </div>
+                    </template>
+                </div>
+                <div class="flex-container" ondragover={allowDrop} ondrop={dropIncomplete}>
+                    <div class="box" draggable="true" ondragstart={drag} id="abc">
+                        hey
+                    </div>
+                </div>
+                <hr>
+                <div class="slds-text-heading_small">COMPLETED POSTS</div><br />
+                <div class="flex-container" ondragover={allowDrop} ondrop={drop}>
+                    
+                    <div id="ToDo1" class="box completed" draggable="true" ondragstart={drag} >
+                        Share JavaScript Code Between LWC and Aura Component
+                    </div> 
+                </div>
+
+            </div>
+        </lightning-layout>
+    </lightning-card>
+</template>

@@ -1,0 +1,33 @@
+<template>
+    <main>
+      <section class="main-wrapper">
+        <div class="key-map-wrapper">
+          <h2>Key Mapping</h2>
+          <ul class="key-map-list">
+              <template for:each={SOUND_KEYS}  for:item="currentItem">
+                  <li key={currentItem.code}>
+                      <kbd class="key-code" >{currentItem.code}</kbd>
+                      <span class="key-sound">{currentItem.sound}</span>
+                  </li>
+               </template>
+          </ul>
+        </div>
+        <h1 class="main-title"> Play drums using <br/>Lightning Web Component</h1>
+        <div class="drum-kit-wrapper">
+          <img class="crash-ride crash-cymbal" ontransitionend={removeCrashRideTransition} src="https://raw.githubusercontent.com/ArunMichaelDsouza/javascript-30-course/master/src/01-javascript-drum-kit/img/crash.png" alt="Crash cymbal">
+          <img class="hihat-top hihat-top-cymbal" ontransitionend={removeHiHatTopTransition} src="https://raw.githubusercontent.com/ArunMichaelDsouza/javascript-30-course/master/src/01-javascript-drum-kit/img/hihat-top.png" alt="Hi Hat cymbal">
+          <!-- https://theasciicode.com.ar/  adding ascii on div using data-key -->
+          <template for:each={DRUM_KEYS}  for:item="currentItem">
+                  <div key= {currentItem.key} data-key={currentItem.key} ontransitionend={removeKeyTransition} class={currentItem.class}>
+                      <kbd>{currentItem.kbd}</kbd>
+                  </div>
+          </template>
+          <img class="drum-kit" src="https://raw.githubusercontent.com/ArunMichaelDsouza/javascript-30-course/master/src/01-javascript-drum-kit/img/drum-kit.png" alt="Drum Kit" />
+        </div>
+      </section>
+    </main>
+    <!-- one audio for one div-->
+     <template for:each={SOUNDS}  for:item="currentItem">
+         <audio key={currentItem.key} data-key={currentItem.key} src={currentItem.url}></audio>
+     </template>
+  </template>

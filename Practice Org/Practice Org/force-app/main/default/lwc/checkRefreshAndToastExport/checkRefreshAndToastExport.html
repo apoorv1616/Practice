@@ -1,0 +1,9 @@
+<template>
+    <lightning-button variant="brand" name="refresh" label="Refresh" onclick={handleRefresh} class="slds-m-left_x-small">
+    </lightning-button>
+    <template if:true={responseReceived}>
+        <lightning-input value={result.data.id} type="text" label="Id"></lightning-input>
+        <lightning-input value={result.data.Name} type="text" label="Name"></lightning-input>
+        <lightning-input value={result.data.Type} type="text" label="Type"></lightning-input> 
+    </template>
+</template>

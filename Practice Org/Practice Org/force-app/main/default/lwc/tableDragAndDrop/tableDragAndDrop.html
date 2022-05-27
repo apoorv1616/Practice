@@ -1,0 +1,49 @@
+<template>
+    <lightning-layout>
+        <lightning-layout-item size="12" padding="horizontal-small">
+            <lightning-card>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                Seq no.
+                            </th>
+                            <th scope="col">
+                                Name
+                            </th>
+                            <th scope="col">
+                                age
+                            </th>
+                            <th scope="col">
+                                sex
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={dataArray} for:item="data">
+                            <tr key={data.seqNumber}>
+                                <td>
+                                    <div draggable="true" ondragstart={handleDragStart} 
+                                    ondrop={handleDrop} 
+ondragover={handleDragover}
+data-item={data.seqNumber}>
+                                        {data.seqNumber}
+                                    </div>
+                                </td>
+                                <td>
+                                    {data.name}
+                                </td>
+                                <td>
+                                    {data.age}
+                                </td>
+                                <td>
+                                    {data.sex}
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </lightning-card>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

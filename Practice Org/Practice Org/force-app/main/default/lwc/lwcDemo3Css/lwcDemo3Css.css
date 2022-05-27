@@ -1,0 +1,11 @@
+.greeting-class {
+    color : green;
+}
+
+div {
+    border : 3px solid blue; 
+}
+
+:host {
+    background-color: #F3EBE1;
+}

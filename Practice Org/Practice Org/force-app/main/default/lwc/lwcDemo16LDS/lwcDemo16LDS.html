@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Demo 16 LDS Demo">
+        <lightning-layout>
+            <lightning-layout-item size="6" padding="around-small">
+                <lightning-card title="Create New Account">
+                    <lightning-input name="accountName" label="Account Name" onchange={nameChangeHandler}></lightning-input>
+                    <lightning-input name="accountPhone" label="Account Phone" onchange={phoneChangeHandler} type="phone"></lightning-input>
+                    <lightning-input name="accountWebsite" label="Account Website" onchange={websiteChangeHandler} type="url"></lightning-input>
+                    <lightning-button variant="brand" onclick={createAccount} label="Create Account"></lightning-button>
+                </lightning-card>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="6" padding="around-small">
+                <lightning-tile label="Display Created Account">
+                    <lightning-formatted-text value={retAccountName}></lightning-formatted-text>
+                    <lightning-formatted-phone value={retAccountPhone}></lightning-formatted-phone>
+                    <lightning-formatted-url value={retAccountWebsite}></lightning-formatted-url>
+                </lightning-tile>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>

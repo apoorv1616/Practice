@@ -1,0 +1,52 @@
+<template>
+
+    <div class="demo-only">
+        
+            <lightning-button name="addContact" label = "Add Contact" class="slds-m-left_x-small" variant="inverse"
+             icon-name="utility:add" onclick={addContact}></lightning-button>
+          
+            <lightning-button name="showDetails" label = "Show Details" class="slds-m-left_x-small" variant="inverse" 
+                disabled={showDetails}
+             icon-name="utility:edit" onclick={showContactDetails}></lightning-button>
+
+            <lightning-button name="deleteContact" label = "Delete Contact" class="slds-m-left_x-small" variant="inverse" 
+            disabled={showDelete}
+             icon-name="utility:delete" onclick={deleteContact}></lightning-button>
+
+             <div onkeyup={searchContactInput}>
+                <lightning-input
+                    name="enter-search"
+                    label="Search Full Name Of Contact"
+                    type="search"
+                ></lightning-input>
+            </div>
+        
+      </div>
+
+    <template if:true={showEditDetails}>
+        <c-shadowing-l-w-c-task1add-contacts-modal onclosemodal = {closeModal} contactedit = {selectedContact}>
+        </c-shadowing-l-w-c-task1add-contacts-modal>
+    </template>
+
+    <template if:true={showModalContact}>
+        <c-shadowing-l-w-c-task1add-contacts-modal onclosemodal = {closeModal} ></c-shadowing-l-w-c-task1add-contacts-modal>
+    </template>
+
+    <template if:true={showMultipleSearchModal}>
+        <c-shadowing-l-w-c-task1-multiple-search-modal onclosemodal = {closeModal} onrowselected = {rowSelectedHandler} 
+        contactedit = {searchMultipleContactsList}>
+        </c-shadowing-l-w-c-task1-multiple-search-modal>
+    </template>
+
+    <div class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+        <lightning-datatable 
+                key-field="id"
+                data={data}
+                columns={columns}
+                suppress-bottom-bar
+                onrowselection={selectedRows}>
+        </lightning-datatable>
+    </div>
+
+
+</template>

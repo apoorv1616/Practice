@@ -1,0 +1,50 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable" access="global" 
+                controller="GetAllAssignmentClass" >
+    <aura:attribute name="columns" type="list" />
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="selectedRowsCount" type="Integer" default="0"/>
+    <aura:attribute name="maxRowSelection" type="Integer" default="5"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="showAssignmentComponent" type="Boolean" default="false" />
+    <aura:attribute name="showDeleteButton" type="Boolean" default="false" />
+    <aura:attribute name="showTimesheet" type="Boolean" default="true" />
+    <aura:attribute name="AssignmentList" type="List" />
+    <aura:handler name="AssignmentEvent" event="c:addAssignmentToTimecardEvent"
+    action="{!c.addAssignmentToTimecard}"/>
+    
+    <aura:if isTrue="{!v.showTimesheet}">
+        <lightning:card title="Timesheet" class="headingOfTimesheet">
+            <aura:set attribute="actions">
+                <div>
+                    <lightning:button label="Save" iconName="utility:like"/>
+                    <lightning:button label="Submit" iconName="utility:download"/>
+                    <lightning:button label="Copy from Previous Week" iconName="utility:answer" />
+                    <lightning:button label="Copy from Forecast" iconName="action:new_note" />
+                </div>            
+            </aura:set>
+            <p class="bodyOfTimeSheet">
+                <div style="height: 300px">
+                    <lightning:datatable data="{! v.data }"
+                    columns="{! v.columns }" 
+                    keyField="id"
+                    onrowaction="{! c.showInsertAndDeleteButton }"
+                    aura:id = "lightningTable"                     />
+                </div>
+            </p><br/>
+            <p class="footerOfTimeSheet">
+                <div>
+                    <lightning:button label="Add Timecard" iconName="utility:add" onclick="{!c.addTimeCard}" />
+                </div>
+                <div class="delete">
+                    <aura:if isTrue="{!v.showDeleteButton}">
+                        <lightning:button iconName="utility:delete" /> 
+                    </aura:if>
+                </div>
+            </p>
+            </lightning:card>
+        </aura:if>
+    	
+        <aura:if isTrue="{!v.showAssignmentComponent}">
+            <c:ShowAllAssignmentComponent AssignmentList = "{!v.AssignmentList}" />
+		</aura:if>
+</aura:component>

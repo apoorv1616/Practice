@@ -1,0 +1,76 @@
+<template>
+    <template if:true={showSpinner}>
+        <div class="slds-spinner_inline spinner-padding">
+            <lightning-spinner variant="brand" 
+                           alternative-text="Loading Cases"     
+                           size="medium">
+        </lightning-spinner>
+        </div>
+    </template>
+    <div class="slds-grid slds-einstein-header slds-card__header slds-grid slds-grid_vertical-align-center slds-size_3-of-4 slds-medium-size_2-of-3 ">
+    <lightning-card title="Add Contacts">
+        <hr>
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item padding="around-small" size="12">
+                <lightning-layout>
+                    <lightning-layout-item padding="around-small" size="6">
+
+                        <lightning-input type="text" name="FirstName" label="First Name" required=""
+                            onchange={HandleInputChange}></lightning-input>
+
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" size="6">
+
+                        <lightning-input type="text" name="LastName" label="Last Name" required=""
+                            onchange={HandleInputChange}></lightning-input>
+
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-layout-item>
+            
+            <lightning-layout-item padding="around-small" size="12">
+                <lightning-layout>
+                    <lightning-layout-item padding="around-small" size="12">
+                        <lightning-input type="date" name="Birthdate" label="Birthdate" required=""
+                    onchange={HandleInputChange}></lightning-input>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-layout-item>
+            
+            <lightning-layout-item padding="around-small" size="12">
+                <lightning-layout>
+                    <lightning-layout-item padding="around-small" size="6">
+
+                        <lightning-input type="email" name="Email" label="Email" required=""
+                            onchange={HandleInputChange}>
+                        </lightning-input>
+
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" size="6">
+                        <lightning-input type="phone" name="Phone" label="Phone Number" required=""
+                            onchange={HandleInputChange}></lightning-input>
+
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-layout-item>
+
+            <div class="slds-p-left_large">
+                <iframe src={_url} name = "recaptchaIframe" id="recaptchaIframe" class="recaptchaIframe" scrolling="auto" width="100%" height="100%">
+                </iframe>
+            </div>
+
+            <lightning-layout-item padding="around-small" size="12">
+                <lightning-layout>
+                    
+                    <lightning-layout-item padding="around-small" size="12">
+                        <div class="slds-p-top_large slds-align_absolute-center">
+                            <lightning-button variant="brand" label="Submit" onclick={submitForm} class="slds-m-left_x-small">
+                            </lightning-button>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+    </div>
+</template>

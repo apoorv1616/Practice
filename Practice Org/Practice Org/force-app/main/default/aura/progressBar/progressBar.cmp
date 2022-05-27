@@ -1,0 +1,21 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="value" type="Integer" default="25" />
+    <aura:attribute name="inputVal" type="Integer" default="25" />
+    <aura:attribute name="timeoutRef" type="object" />
+    <div class="slds-m-around_small">
+        <div class="slds-text-heading_large slds-m-bottom_small">Progress Bar Demo</div>
+        <div class="slds-m-bottom_large">
+            <label>Enter value : <ui:inputNumber value="{!v.inputVal}" change="{!c.valueChanged}" /></label>
+        </div>
+        <div>
+            <div style="width:25%" class="slds-progress-bar slds-progress-bar_circular slds-progress-bar_large"
+                 aria-valuemin="0" aria-valuemax="100" aria-valuenow="{!v.value}" role="progressbar">
+                <span class="slds-progress-bar__value" style="{! 'width:  ' + v.value + '%;'}">
+                    <span class="slds-assistive-text">{!'Progress: ' + v.value + '%'}</span>
+                </span>
+                <div class="slds-text-align--center"><ui:outputNumber value="{!v.value}"/>/<ui:outputNumber value="100"/></div>
+            </div>
+        </div>
+    </div>
+
+</aura:component>

@@ -1,0 +1,127 @@
+<template>
+    <template if:true={showSpinner}>
+        <div class="">
+            <lightning-spinner alternative-text="Loading" size="large" variant="brand"></lightning-spinner>
+        </div>
+    </template>
+
+    <lightning-card  title="Display Records">
+        
+        <lightning-button label="Download" slot="actions" variant="success" icon-name="utility:download" class="slds-m-left_x-small" 
+        onclick={downloadData}>
+        </lightning-button>
+        
+        <div class="slds-float_right slds-p-right_xx-large">
+            <lightning-input type="text" label="Show Records" name = "pageSize" value={inputValue.pageSize} onchange={handleChange}
+            class="showRecordNumber">
+            </lightning-input>
+        </div>
+        
+        <div class= "slds-p-left_xx-large">
+            <p class="slds-p-horizontal_small">
+                <lightning-combobox
+                    class = "searchObject"
+                    name="searchObject"
+                    label="Search Object"
+                    value={value}
+                    placeholder="Select"
+                    options={options}
+                    onchange={handleChange} >
+                </lightning-combobox>
+            </p>
+        </div>
+
+        <div class="slds-float_right slds-p-right_xx-large slds-p-top_xx-large">
+            <lightning-button variant="brand" label="Add Field" onclick={includeFields} class="slds-m-left_x-small" 
+            icon-name="utility:new">
+            </lightning-button>
+        </div>
+
+        <div class="slds-p-left_xx-large">
+            <br/>
+            <lightning-input type="text" label="Select Fields" name = "fieldValues" onchange={handleFieldValue}
+                class="fieldValue"></lightning-input>
+
+            <br/>
+
+            <template for:each={fieldValueArr} for:item="item">
+                <div key={item}>
+                    <lightning-pill label={item} onremove={handleRemove}>
+                    </lightning-pill>
+                </div>
+            </template>
+        </div>
+
+        <br/>
+        
+        <div class="slds-align_absolute-center">
+            <lightning-button variant="brand" label="Submit" onclick={showRecords} class="slds-m-left_x-small">
+            </lightning-button>
+        </div>
+        
+        <hr>
+        
+        <div class="container">
+            <div class="">
+                <div class="slds-scrollable_y" style="height:auto;">
+                    <table class="slds-table slds-table_bordered  slds-table_cell-buffer slds-table--header-fixed">
+                        <thead>
+                            <tr class="slds-line-height_reset slds-p-top_x-small slds-p-bottom_x-small">
+                                <template for:each={fieldValueArr} for:item="item" if:true={isDataFound}>    
+                
+                                    <th class="slds-truncate slds-cell-fixed" scope="col" key={item}>
+                                        <div class="slds-truncate slds-p-around_small "> {item} </div>
+                                    </th>
+                
+                                </template>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={data} for:item="item" if:true={isDataFound}>
+                                <tr key={item.Id}>
+                                    <td>
+                                        <div class="slds-truncate slds-p-around_small ">
+                                            {item.Id}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate slds-p-around_small ">
+                                            {item.Name}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate slds-p-around_small ">
+                                            {item.StageName}
+                                        </div>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+    
+                <template if:false={isDataFound}>
+                    <div class="nomatching_message slds-p-around_large "
+                        style="position: relative;font-size: large;text-align: center;">No matching record found !! </div>
+                </template>
+                
+                
+                <template if:true={isDataFound}>
+                    <div class="slds-m-around_medium"> 
+                        <c-paginator page-size={inputValue.pageSize} object-name={inputValue.searchObject} 
+                        onhandledata = {handleData} field-value-arr={fieldValueArr} >
+                        </c-paginator>
+                    </div> 
+                </template> 
+                
+
+                <template if:true={isDownloadData}>
+                    <div class="slds-m-around_medium"> 
+                        <c-download-data items={items}></c-download-data>
+                    </div> 
+                </template> 
+
+            </div>
+        </div>
+    </lightning-card>
+</template>
