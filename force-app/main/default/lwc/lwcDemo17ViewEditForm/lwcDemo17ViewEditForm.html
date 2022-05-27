@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title="Demo 17 Record Form Demo">
+        <lightning-layout>
+            <lightning-layout-item size="6" padding="around-small">
+                <lightning-card title="Lightning Edit form">
+                    <lightning-record-edit-form object-api-name="Account" onsuccess={successHandler}>
+                        <p>
+                            <lightning-input-field field-name="Name"></lightning-input-field>
+                        </p>
+                        <p>
+                            <lightning-input-field field-name="Phone"></lightning-input-field>
+                        </p>
+                        <p>
+                            <lightning-input-field field-name="Website"></lightning-input-field> 
+                        </p>
+                        <lightning-button type="submit" variant="brand" name="save" label="Create Account"></lightning-button>
+                    </lightning-record-edit-form>
+                </lightning-card>
+            </lightning-layout-item>
+            <lightning-layout-item size="6" padding="around-small">
+                <lightning-card title="Lightning View Form">
+                    <lightning-record-view-form record-id={recordId} object-api-name="Account">
+                        <p>
+                            <lightning-output-field field-name="Name"></lightning-output-field>
+                        </p>
+                        <p>
+                            <lightning-output-field field-name="Phone"></lightning-output-field>
+                        </p>
+                        <p>
+                            <lightning-output-field field-name="Website"></lightning-output-field>                           
+                        </p>
+                    </lightning-record-view-form>
+                </lightning-card>
+            </lightning-layout-item>
+            
+        </lightning-layout>
+    </lightning-card>
+</template>

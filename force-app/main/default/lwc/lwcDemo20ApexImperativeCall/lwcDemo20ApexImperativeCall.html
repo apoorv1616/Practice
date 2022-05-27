@@ -1,0 +1,14 @@
+<template>
+    <lightning-input type="number" label="Number of Accounts" onchange={numberChangeHandler} ></lightning-input>
+    <lightning-button label="get Account" onclick={getAccount}></lightning-button>
+    <lightning-card title="Demo 20 Call Apex Using Imperative">
+        <template for:each={accounts} for:item="account">
+            <template if:true={responseReceived}>
+                <li key={account.id}>
+                    {account.Name}--------------------------{account.Phone}
+                </li>
+            </template>
+        </template>
+    </lightning-card>
+    
+</template>

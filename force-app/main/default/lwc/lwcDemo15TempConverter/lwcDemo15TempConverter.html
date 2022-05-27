@@ -1,0 +1,8 @@
+<template>
+    <lightning-card title="Demo 15 Temperature Convertor">
+        <lightning-input label="Enter Celcius Temperature" type="number" onchange={handleTempChange} ></lightning-input>
+        <lightning-button label="Convert to Farenhite" onclick={convertTemp}></lightning-button>
+
+        Converted temperature is : {convertedTemp}
+    </lightning-card>
+</template>

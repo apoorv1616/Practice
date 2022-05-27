@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="demo 13">
+        <lightning-layout>
+            <lightning-layout-item size="4" padding="around-small">
+
+                <template for:each={contactInfoList} for:item="contact">
+                    <li key={contact.id}>
+                        <c-lwc-demo13-event-child contact-info={contact} ></c-lwc-demo13-event-child>
+                    </li>
+                </template>
+            </lightning-layout-item>
+            <lightning-layout-item size="6" padding="around-small">
+
+                you have selected : {selectedContactInfo}
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>

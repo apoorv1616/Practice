@@ -1,0 +1,12 @@
+{
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true
+    }
+  ],
+  "name": "Practice Org",
+  "namespace": "",
+  "sfdcLoginUrl": "https://practice-apoorv-dev-ed.my.salesforce.com/",
+  "sourceApiVersion": "54.0"
+}

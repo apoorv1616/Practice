@@ -1,0 +1,94 @@
+<template>
+    <div class="container" style="background-color: white;">
+        <div onkeyup={handleKeyUp}>
+            <lightning-input
+                name="enter-search"
+                label="Search when user hits the 'enter' key"
+                type="search"
+            ></lightning-input>
+        </div>
+        <p if:true={queryTerm}>
+            <c-custom-lookup obj-name="Account" search-placeholder="Search Accounts" 
+            icon-name="standard:account" onlookupselected={handleAccountSelection}></c-custom-lookup>
+        </p>
+        <!--
+        <template for:each={childData} for:item="item">
+            <div key={item.accountName}>
+                <lightning-accordion class="example-accordion" onsectiontoggle={handleToggleSection}
+                active-section-name={activeSections}
+                >
+                    <lightning-accordion-section name={item.accountName} label={item.accountName}>
+
+                        <template for:each={item.contactWrapperList} for:item="contactWrapper"
+                            >
+                            <div key={contactWrapper.contactName}>
+                                <lightning-accordion class="example-accordion" onsectiontoggle={handleToggleSection}>
+                                    <lightning-accordion-section name={contactWrapper.contactName}
+                                        label={contactWrapper.contactName}>
+                                        <table
+                                            class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+                                            <thead>
+                                                <tr class="slds-line-height_reset">
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Opportunity Name">
+                                                            Opportunity Name</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Account Name">Stage Name
+                                                        </div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Close Date">Close Date
+                                                        </div>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <template for:each={contactWrapper.opportunityWrapperList}
+                                                    for:item="opportunityWrapper">
+
+                                                    <tr class="slds-hint-parent"
+                                                        key={opportunityWrapper.opportunityName}>
+                                                        <th data-label={opportunityWrapper.opportunityName} scope="row">
+                                                            <div class="slds-truncate"
+                                                                title={opportunityWrapper.opportunityName}>
+                                                                <a href="javascript:void(0);"
+                                                                    tabindex="-1">{opportunityWrapper.opportunityName}</a>
+                                                            </div>
+                                                        </th>
+                                                        <th data-label={opportunityWrapper.StageName} scope="row">
+                                                            <div class="slds-truncate"
+                                                                title={opportunityWrapper.StageName}>
+                                                                <a href="javascript:void(0);"
+                                                                    tabindex="-1">{opportunityWrapper.StageName}</a>
+                                                            </div>
+                                                        </th>
+                                                        <th data-label={opportunityWrapper.CloseDate} scope="row">
+                                                            <div class="slds-truncate"
+                                                                title={opportunityWrapper.CloseDate}>
+                                                                <a href="javascript:void(0);"
+                                                                    tabindex="-1">{opportunityWrapper.CloseDate}</a>
+                                                            </div>
+                                                        </th>
+                                                    </tr>
+
+                                                </template>
+                                            </tbody>
+                                        </table>
+
+                                    </lightning-accordion-section>
+                                </lightning-accordion>
+                            </div>
+                        </template>
+
+                    </lightning-accordion-section>
+                </lightning-accordion>
+            </div>
+        </template>
+
+        <template if:true={passData}>
+            <c-paginator items={data} page-size={pageSize} ondataevent={handleEvent} ></c-paginator>
+        </template> -->
+
+    </div>
+</template>

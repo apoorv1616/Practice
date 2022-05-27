@@ -1,0 +1,29 @@
+<template>
+    <table class="slds-table slds-table--bordered slds-table_fixed-layout">
+        <thead>
+            <tr class="slds-text-heading--label">
+                <template for:each={columns} for:item="item">
+                    <th class="slds-cell-wrap" key={item.name}>{item.label}</th>
+                </template>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={data} for:item="item" for:index="index">
+                <tr class="slds-hint-parent" key={item.interactionContentId}>
+                    <td>
+                        <div class="slds-p-around_medium lgc-bg">
+                            <lightning-input type="text" label="Click To Search"></lightning-input>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="slds-hint-parent" key={item.interactionContentId}>
+                    <td>
+                        <div class="slds-p-around_medium lgc-bg">
+                            <lightning-input type="Number" value={data.Mon}></lightning-input>
+                        </div>
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</template>

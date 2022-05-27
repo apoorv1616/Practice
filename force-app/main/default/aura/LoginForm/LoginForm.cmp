@@ -1,0 +1,15 @@
+<aura:component >
+    <aura:attribute name="userName" type="String" />
+    <aura:attribute name="password" type="String" />
+    
+    <lightning:card title="LOGIN FORM" class="form">
+        <br/><lightning:input name="inputUserName" type="email" placeholder="USERNAME" aura:id="inputUserName" 
+                              value="admin@gmail.com"/>
+        <br/><lightning:input name="inputPassword" type="password" placeholder="Password" aura:id = "inputPassword"
+                              value="123" />
+        <br/><br/><lightning:button variant="success" label="SUBMIT" onclick="{! c.handleClick }" /> 
+    </lightning:card>
+    
+    {!v.userName}
+    {!v.password}
+</aura:component>

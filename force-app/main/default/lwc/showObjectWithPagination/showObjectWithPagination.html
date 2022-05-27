@@ -1,0 +1,18 @@
+<template>
+    <lightning-card  title="Display Records">
+        <lightning-input type="text" label="Show Records" value={showRecords} onchange={handleChange} class="showRecord">
+        </lightning-input>
+        <p class="slds-p-horizontal_small">
+            <lightning-combobox
+                name="searchObject"
+                label="Search Object"
+                value={value}
+                placeholder="Select Progress"
+                options={options}
+                onchange={handleChange} >
+            </lightning-combobox>
+        </p>
+
+        <p slot="footer">Card Footer</p>
+    </lightning-card>
+</template>

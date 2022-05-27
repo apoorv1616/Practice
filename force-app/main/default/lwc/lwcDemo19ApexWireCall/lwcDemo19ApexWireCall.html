@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Demo 19 Call Apex Using Wire">
+        <template for:each={accounts.data} for:item="account">
+            <template if:true={responseReceived}>
+                <li key={account.id}>
+                    {account.Name}--------------------------{account.Phone}
+                </li>
+            </template>
+        </template>
+    </lightning-card>
+</template>

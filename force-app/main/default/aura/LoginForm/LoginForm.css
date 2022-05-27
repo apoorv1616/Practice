@@ -1,0 +1,19 @@
+.THIS.form {
+    border:1px solid black;
+    border-color:Gray;
+    background-color: #E0E6F8;
+    margin-top:10%;
+    margin-left : 35%;
+    width:20%;
+    padding:5%;
+    transition: width 4s height 8s;
+}
+
+.THIS.form:hover {
+    width: 40%;
+    height: 40%;
+}
+
+.THIS {
+    text-shadow: 2px 2px red;
+}

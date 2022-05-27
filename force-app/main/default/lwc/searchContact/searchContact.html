@@ -1,0 +1,51 @@
+<template>
+    <div class="container" style="background-color: white;">
+        <div onkeyup={handleKeyUp}>
+            <lightning-input
+                name="enter-search"
+                label="Search Contacts"
+                type="search"
+            ></lightning-input>
+        </div>
+        <p if:true={result.isExactMatch}>
+             {contact.Name}
+        </p>
+        <p if:false={result.isExactMatch}>
+            Did You mean <a onclick={increaseSearchCount}> {contact.Name}! </a>
+        </p>
+    
+        <template if:true={showResult}>
+            <!-- Contact Id : {contact.Name}
+            Contact Name : {contact.Name} -->
+            <div class="ny_card ">
+                <table class="slds-table slds-table--bordered slds-table_fixed-layout slds-no-row-hover">
+                    <thead>
+                        <tr class="slds-text-heading--label">
+                            <th class="slds-cell-wrap" style="padding: 1%;">Contact Id</th>
+                            <th class="slds-cell-wrap">Contact Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="slds-hint-parent" key={contact.id}>
+                                
+                            <td>
+                                <div class="slds-truncate" title={contact.Name}>
+
+                                    {contact.Name}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title={contact.Name}>
+
+                                    {contact.Name}
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </template>
+    </div>
+   
+
+</template>
