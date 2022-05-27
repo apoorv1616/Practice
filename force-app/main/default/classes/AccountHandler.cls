@@ -1,4 +1,4 @@
-public virtual class AccountHandler {
+public virtual class AccountHandler { //test
     public static void insertAccount(List<Account> newList, Map<Id,Account> oldMap) {
         Set<String> countrySet = new Set<String>{'US','USA','United States'};
         Set<String> stateSet = new Set<String>{'AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME'
